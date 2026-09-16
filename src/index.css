@@ -1,0 +1,206 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-cream text-charcoal font-sans;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+  }
+  /* anchor offset so fixed nav never covers headings on mobile */
+  section[id],
+  header[id] {
+    scroll-margin-top: 76px;
+  }
+  /* prevent iOS auto-zoom on form fields */
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+  @media (min-width: 640px) {
+    input,
+    select,
+    textarea {
+      font-size: 14px;
+    }
+  }
+  ::selection {
+    background: #b5622e;
+    color: #f6f3ec;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f6f3ec;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1f3d3a;
+    border-radius: 8px;
+    border: 2px solid #f6f3ec;
+  }
+}
+
+@layer components {
+  /* ---- reveal on scroll ---- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (max-width: 640px) {
+    .reveal {
+      transform: translateY(14px);
+      transition-duration: 0.55s;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  /* ---- calm link underline ---- */
+  .calm-link {
+    position: relative;
+  }
+  .calm-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    height: 1.5px;
+    width: 100%;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .calm-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  /* ---- buttons: quiet, no gradient ---- */
+  .btn-rust {
+    transition:
+      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.35s,
+      background 0.35s;
+  }
+  .btn-rust:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px -12px rgba(181, 98, 46, 0.55);
+  }
+  .btn-rust:active {
+    transform: translateY(0);
+  }
+  .btn-ghost {
+    transition:
+      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.35s,
+      background 0.35s;
+  }
+  .btn-ghost:hover {
+    transform: translateY(-2px);
+  }
+
+  /* ---- premium cards ---- */
+  .card-premium {
+    transition:
+      transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.45s,
+      border-color 0.45s,
+      background 0.45s;
+    will-change: transform;
+  }
+  .card-premium:hover {
+    transform: translateY(-6px);
+    box-shadow:
+      0 24px 48px -20px rgba(31, 61, 58, 0.28),
+      0 8px 20px -10px rgba(181, 98, 46, 0.18);
+  }
+  .card-premium:hover .card-arrow {
+    transform: translate(3px, -3px);
+    opacity: 1;
+  }
+  .card-arrow {
+    opacity: 0.35;
+    transition:
+      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.35s;
+  }
+  @media (max-width: 640px) {
+    .card-premium:hover {
+      transform: translateY(-3px);
+    }
+    .card-arrow {
+      opacity: 0.6;
+    }
+  }
+
+  /* ---- slow breathing image ---- */
+  @keyframes slow-zoom {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+  .breathe {
+    animation: slow-zoom 18s ease-in-out infinite;
+  }
+
+  /* ---- soft marquee for review strip ---- */
+  @keyframes drift-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  .drift {
+    animation: drift-left 42s linear infinite;
+  }
+  .drift:hover {
+    animation-play-state: paused;
+  }
+  @media (max-width: 640px) {
+    .drift {
+      animation-duration: 30s;
+    }
+  }
+
+  /* ---- hairline rule device ---- */
+  .hairline {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #1f3d3a33, transparent);
+  }
+
+  /* ---- grain-free paper feel ---- */
+  .paper {
+    background-image: radial-gradient(#1f3d3a0d 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+}
