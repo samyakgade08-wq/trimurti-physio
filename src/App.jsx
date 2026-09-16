@@ -13,24 +13,25 @@ import {
   MessageCircle,
   Navigation,
   GraduationCap,
-  Languages,
   BadgeCheck,
   Bone,
   Brain,
   HeartPulse,
-  Baby,
-  Accessibility,
-  Hand,
   Activity,
   PersonStanding,
-  Stethoscope,
+  Zap,
+  Target,
+  Waves,
 } from 'lucide-react'
 
-const PHONE = '+917276065838'
-const PHONE_LABEL = '+91 72760 65838'
-const WA_LINK = 'https://wa.me/917276065838?text=Hello%20Dr.%20Radhika%2C%20I%20would%20like%20to%20book%20a%20physiotherapy%20consultation.'
-const MAPS_LINK = 'https://www.google.com/maps/search/?api=1&query=Trimurti+Advanced+Physiotherapy+Kothrud+Pune+18.5082281+73.8144578'
-const MAP_EMBED = 'https://www.google.com/maps?q=18.5082281,73.8144578&z=16&output=embed'
+const PHONE = '+919145358605'
+const PHONE_LABEL = '+91 91453 58605'
+const PHONE2 = '+917066953879'
+const PHONE2_LABEL = '+91 70669 53879'
+const EMAIL = 'mehtadevika786@gmail.com'
+const WA_LINK = 'https://wa.me/919145358605?text=Hello%20Dr.%20Devika%2C%20I%20would%20like%20to%20book%20a%20physiotherapy%20consultation.'
+const MAPS_LINK = 'https://www.google.com/maps/search/?api=1&query=Neolife+Physiotherapy+Sports+Rehabilitation+Narayan+Peth+Pune+411030'
+const MAP_EMBED = 'https://www.google.com/maps?q=Neolife%20Physiotherapy%20Narayan%20Peth%20Pune%20411030&z=16&output=embed'
 
 /* ---------- scroll reveal ---------- */
 function useRevealRoot() {
@@ -58,7 +59,7 @@ function useRevealRoot() {
 
 function Stars({ className = 'h-4 w-4' }) {
   return (
-    <span className="flex items-center gap-0.5" aria-label="4.9 out of 5 stars">
+    <span className="flex items-center gap-0.5" aria-label="5 out of 5 stars">
       {[1, 2, 3, 4, 5].map((i) => (
         <Star key={i} className={`${className} fill-rust text-rust`} />
       ))}
@@ -67,33 +68,48 @@ function Stars({ className = 'h-4 w-4' }) {
 }
 
 const CONDITIONS = [
-  { icon: Activity, title: 'Cervical spondylitis & neck pain', desc: 'Stiffness, radiating pain, headaches — treated at the root, not just the symptoms.' },
-  { icon: Bone, title: 'PIVD — slipped / prolapsed disc', desc: 'Sciatica-type leg pain, back spasms, disc bulge rehab without rushing to surgery.' },
-  { icon: PersonStanding, title: 'Arthritis & osteoarthritis', desc: 'Knee, hip and hand arthritis — strength, mobility and pain management for daily life.' },
-  { icon: Stethoscope, title: 'Ankylosing arthritis rehab', desc: 'Long-term posture, flexibility and breathing-led rehabilitation programs.' },
-  { icon: Hand, title: 'Post-surgical rehabilitation', desc: 'Post hand-surgery, orthopedic surgery recovery — swelling, stiffness and strength.' },
-  { icon: Brain, title: 'Neuromuscular rehabilitation', desc: 'Balance, coordination and strength retraining after neurological setbacks.' },
-  { icon: Accessibility, title: 'Elderly care — strength & balance', desc: 'Fall prevention, walking confidence, joint mobility for older adults.', highlight: true },
-  { icon: Baby, title: 'Antenatal & postnatal programs', desc: 'Safe, guided exercise for pregnancy recovery and core rebuilding.' },
-  { icon: HeartPulse, title: 'Osteopathy & manual therapy', desc: 'Hands-on joint and tissue work for lasting mobility and alignment.' },
+  { icon: Zap, title: 'Sports injuries & rehab', desc: 'Sprains, strains, ligament injuries — structured rehab built for a safe return to sport.' },
+  { icon: Activity, title: 'Lower back pain & sciatica', desc: 'Root-cause diagnosis in minutes, precise treatment — major relief within days, not weeks.' },
+  { icon: Bone, title: 'Knee pain & joint injuries', desc: 'Accurate diagnosis, modern equipment, guided exercises and posture correction explained clearly.' },
+  { icon: Target, title: 'Tendon injuries', desc: 'Tennis elbow, Achilles and overuse injuries — progressive loading that rebuilds real capacity.' },
+  { icon: PersonStanding, title: 'Shoulder, wrist & hand pain', desc: 'Targeted manual therapy plus corrective exercise for grip, reach and daily function.' },
+  { icon: HeartPulse, title: 'Post-surgical rehabilitation', desc: 'Step-by-step strength and mobility rebuilding after orthopedic surgery.' },
+  { icon: Brain, title: 'Posture correction & ergonomics', desc: 'Desk-job necks, rounded shoulders, movement retraining for lasting alignment.' },
+  { icon: Waves, title: 'Strength & conditioning', desc: 'Return-to-sport testing, load management and performance-focused conditioning.' },
+  { icon: GraduationCap, title: 'Preventive screening', desc: 'Movement assessment for athletes — catch imbalances before they become injuries.', highlight: true },
+]
+
+const TECHNIQUES = [
+  {
+    abbr: 'CKTP',
+    title: 'Kinesio Taping',
+    desc: 'Certified taping for pain relief, swelling control and joint support — without restricting the movement you need to heal and perform.',
+  },
+  {
+    abbr: 'CDNP',
+    title: 'Dry Needling',
+    desc: 'Certified trigger-point needling that releases deep muscle knots and stubborn pain points hands alone can’t reach.',
+  },
+  {
+    abbr: 'CPP',
+    title: 'Clinical Pilates',
+    desc: 'Pilates-based rehab for core strength, stability and control — the bridge between treatment table and full activity.',
+  },
 ]
 
 const TESTIMONIALS = [
-  { text: 'Cervical spondylitis had made even turning my neck painful. Remarkable relief within sessions — she explained the root cause so clearly.', tag: 'Cervical spondylitis', name: 'Google review', initial: 'C' },
-  { text: 'After my hand surgery there was stiffness, pain and swelling. Steady improvement every week. Very personal attention.', tag: 'Post hand-surgery rehab', name: 'Google review', initial: 'H' },
-  { text: 'For my elderly mother — strength, mobility and balance all improved. The team is patient and never rushes.', tag: 'Elderly care', name: 'Google review', initial: 'E' },
-  { text: 'Modern equipment, latest machinery, and they actually explain what is wrong instead of just giving heat therapy.', tag: 'Root-cause approach', name: 'Google review', initial: 'M' },
-  { text: 'Personalized treatment plan, not a photocopy routine. Every session built on the last one.', tag: 'Personalized plans', name: 'Google review', initial: 'P' },
-  { text: 'Polite, skilled team — Dr. Reva and Dr. Sakshi along with Dr. Radhika. Full attention in every visit.', tag: 'Caring team', name: 'Google review', initial: 'T' },
+  { text: 'Diagnosed the exact root cause of my pain within minutes… felt major relief within just 2 days.', tag: 'Lower back pain', name: 'Google review', initial: 'L' },
+  { text: 'Diagnosis was accurate and treatment approach was precise… modern equipment used, exercises and posture correction explained clearly.', tag: 'Knee and wrist pain', name: 'Google review', initial: 'K' },
+  { text: 'Her positive words and motivation alone healed me 40%… revived 80% of my mobility.', tag: 'Tendon injury recovery', name: 'Google review', initial: 'T' },
 ]
 
 const FAQS = [
-  { q: 'Do I need a doctor’s referral to visit?', a: 'No. You can book directly on call or WhatsApp. If you have an X-ray, MRI or prescription, bring it — it helps Dr. Radhika plan faster, but it is not compulsory.' },
-  { q: 'What is the consultation fee?', a: '₹500 for both clinic visits and online consultations. Treatment session charges depend on your condition and plan, explained clearly before we begin.' },
-  { q: 'What are the clinic timings?', a: 'Google lists Mon–Sat 9:00 AM – 9:00 PM, Sunday closed. Practo and Apollo sometimes show narrower booking slots (e.g. afternoons). Please call or WhatsApp to confirm the day’s availability before visiting.' },
-  { q: 'Do you treat elderly patients and post-surgery cases?', a: 'Yes — a large part of the practice is elderly mobility/balance care and post-surgical rehab including post hand-surgery stiffness, pain and swelling.' },
-  { q: 'Which languages do you speak?', a: 'English, Hindi and Marathi — so patients and family members can all discuss the condition comfortably.' },
-  { q: 'Where exactly is the clinic?', a: 'Plot no 22, Siddhaved, Ishadan Society Rd, Anand Nagar, Kothrud, Paud Road, Pune 411038 — easy to reach from Kothrud and Paud Road.' },
+  { q: 'Do I need a doctor’s referral to visit?', a: 'No. You can book directly on call or WhatsApp. If you have an X-ray, MRI or prescription, bring it — it helps Dr. Devika diagnose faster, but it is not compulsory.' },
+  { q: 'What is the consultation fee?', a: 'The consultation fee is yet to be confirmed — please call or WhatsApp the clinic and we’ll share the current charges honestly before you visit.' },
+  { q: 'What are the clinic timings?', a: 'Monday to Saturday, 11:00 AM – 8:30 PM. Sunday closed. Please call or WhatsApp to confirm your slot before visiting.' },
+  { q: 'Do you treat only athletes?', a: 'No — athletes are the speciality, but everyday cases like back pain, knee pain, tendon injuries and post-surgical rehab form a large part of the practice.' },
+  { q: 'What are Kinesio Taping, Dry Needling and Pilates?', a: 'Certified add-on techniques: taping supports joints while you move, dry needling releases deep trigger points, and clinical Pilates rebuilds core strength. Dr. Devika will tell you honestly whether your case needs them.' },
+  { q: 'Where exactly is the clinic?', a: '515, Narayan Peth, Shreedhar Apartment, Shop No. 3, Near Patrya Maruti Mandir, Pune – 411030. Easy to reach from Narayan Peth and the old city.' },
 ]
 
 function Navbar() {
@@ -106,6 +122,7 @@ function Navbar() {
   }, [])
   const links = [
     { label: 'Conditions', href: '#conditions' },
+    { label: 'Techniques', href: '#techniques' },
     { label: 'About', href: '#about' },
     { label: 'Approach', href: '#approach' },
     { label: 'Reviews', href: '#reviews' },
@@ -117,8 +134,8 @@ function Navbar() {
       <nav className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? 'border-b border-pine/15 bg-cream/95 shadow-lg shadow-pine/10 backdrop-blur-xl' : 'border-b border-transparent bg-gradient-to-b from-pine-deep/60 to-transparent'}`}>
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:h-[72px] sm:px-8">
           <a href="#top" className="flex min-w-0 flex-col leading-none">
-            <span className={`font-serif text-lg font-semibold tracking-tight sm:text-xl ${scrolled ? 'text-pine' : 'text-cream'}`}>Trimurti</span>
-            <span className={`mt-1 text-[9px] font-semibold uppercase tracking-[0.22em] ${scrolled ? 'text-charcoal/55' : 'text-cream/65'}`}>Advanced Physiotherapy</span>
+            <span className={`font-serif text-lg font-semibold tracking-tight sm:text-xl ${scrolled ? 'text-pine' : 'text-cream'}`}>Neolife</span>
+            <span className={`mt-1 text-[9px] font-semibold uppercase tracking-[0.22em] ${scrolled ? 'text-charcoal/55' : 'text-cream/65'}`}>Sports Rehab · Pune</span>
           </a>
           <div className="hidden items-center gap-7 lg:flex">
             {links.map((l) => (
@@ -138,7 +155,7 @@ function Navbar() {
         <div className="absolute inset-0 bg-pine-deep/70 backdrop-blur-sm" onClick={() => setOpen(false)} />
         <div className={`absolute inset-x-0 top-0 max-h-[88dvh] overflow-y-auto rounded-b-3xl bg-cream px-5 pb-8 pt-5 transition-transform duration-500 sm:px-6 ${open ? 'translate-y-0' : '-translate-y-full'}`}>
           <div className="mb-4 flex items-center justify-between">
-            <span className="font-serif text-xl font-semibold text-pine">Trimurti</span>
+            <span className="font-serif text-xl font-semibold text-pine">Neolife</span>
             <button onClick={() => setOpen(false)} aria-label="Close menu" className="rounded-full bg-pine/10 p-2"><X className="h-5 w-5 text-pine" /></button>
           </div>
           <div className="flex flex-col">
@@ -176,23 +193,23 @@ function Hero() {
         <div className="min-w-0">
           <p className="reveal flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-cream/60 sm:text-xs sm:tracking-[0.2em]">
             <span className="inline-block h-px w-6 shrink-0 bg-rust sm:w-8" />
-            <span className="text-balance">Kothrud, Pune — Orthopedic Physiotherapy</span>
+            <span className="text-balance">Narayan Peth, Pune — Sports Physiotherapy</span>
           </p>
           <h1 className="reveal mt-4 text-balance font-serif text-4xl font-medium leading-[1.04] tracking-tight text-cream sm:mt-5 sm:text-6xl sm:leading-[1.02] lg:text-[68px]" style={{ '--reveal-delay': '80ms' }}>
-            Dr. Radhika<br />Kulkarni
-            <span className="mt-2 block text-lg font-normal italic text-cream/70 sm:text-2xl">MPT Ortho — calm, root-cause recovery</span>
+            Dr. Devika<br />Mehta
+            <span className="mt-2 block text-lg font-normal italic text-cream/70 sm:text-2xl">MPTh Sports — precise rehab, faster return</span>
           </h1>
           <p className="reveal mt-5 max-w-xl text-[15px] leading-relaxed text-cream/75 sm:mt-6 sm:text-base" style={{ '--reveal-delay': '160ms' }}>
-            Trimurti Advanced Physiotherapy and Osteopathy. 10+ years of experience in orthopedic rehab —
-            cervical pain, slipped disc, arthritis, post-surgical and elderly care — explained plainly,
-            treated personally.
+            Neolife Physiotherapy and Sports Rehabilitation Centre. Specialised sports physiotherapy —
+            back pain, knee and tendon injuries, post-surgical rehab — diagnosed in minutes, treated with
+            certified modern techniques.
           </p>
           <div className="reveal mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 sm:mt-6 sm:gap-x-5 sm:gap-y-3" style={{ '--reveal-delay': '220ms' }}>
             <Stars className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-            <span className="text-sm font-semibold text-cream">4.9</span>
-            <span className="text-sm text-cream/60">107 Google reviews</span>
+            <span className="text-sm font-semibold text-cream">5.0</span>
+            <span className="text-sm text-cream/60">142 Google reviews</span>
             <span className="hidden h-4 w-px bg-cream/20 sm:inline-block" />
-            <span className="w-full text-[13px] text-cream/60 sm:w-auto sm:text-sm">BPT, MPT · Reg. 2013/07/PT/002883</span>
+            <span className="w-full text-[13px] text-cream/60 sm:w-auto sm:text-sm">BPTh · MPTh (Sports) · CKTP · CDNP · CPP</span>
           </div>
           <div className="reveal mt-6 flex flex-col gap-2.5 sm:mt-8 sm:gap-3 lg:flex-row lg:flex-wrap" style={{ '--reveal-delay': '280ms' }}>
             <a href={`tel:${PHONE}`} className="btn-rust inline-flex w-full items-center justify-center gap-2 rounded-full bg-rust px-7 py-3.5 text-[15px] font-semibold text-cream sm:w-auto sm:py-4">
@@ -206,15 +223,15 @@ function Hero() {
             </a>
           </div>
           <div className="reveal mt-6 flex flex-col gap-2 text-[13px] text-cream/60 sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-x-6 sm:gap-y-2" style={{ '--reveal-delay': '340ms' }}>
-            <span className="inline-flex items-center gap-1.5"><BadgeCheck className="h-4 w-4 shrink-0 text-rust-soft" /> ₹500 clinic & online consult</span>
-            <span className="inline-flex items-center gap-1.5"><Languages className="h-4 w-4 shrink-0 text-rust-soft" /> English · Hindi · Marathi</span>
+            <span className="inline-flex items-center gap-1.5"><BadgeCheck className="h-4 w-4 shrink-0 text-rust-soft" /> Certified taping · needling · Pilates</span>
+            <span className="inline-flex items-center gap-1.5"><Clock className="h-4 w-4 shrink-0 text-rust-soft" /> Mon–Sat · 11 AM – 8:30 PM</span>
           </div>
         </div>
         <div className="reveal relative min-w-0 pb-14 sm:pb-0" style={{ '--reveal-delay': '200ms' }}>
           <div className="overflow-hidden rounded-3xl border border-cream/15 shadow-2xl shadow-black/30 sm:rounded-[28px]">
             <img
-              src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=80"
-              alt="Calm hands-on physiotherapy treatment"
+              src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1200&q=80"
+              alt="Athlete doing guided sports rehabilitation"
               className="breathe h-[300px] w-full object-cover sm:h-[480px]"
               style={{ transform: `translateY(${offset * 0.15}px)` }}
               loading="eager"
@@ -222,7 +239,7 @@ function Hero() {
           </div>
           <div className="absolute inset-x-4 -bottom-2 rounded-2xl bg-cream px-4 py-3.5 shadow-xl sm:inset-x-auto sm:-bottom-5 sm:left-8 sm:right-auto sm:min-w-[320px] sm:px-5 sm:py-4">
             <div className="flex items-center gap-3">
-              <p className="flex min-w-0 flex-1 items-center gap-2 text-[13px] font-semibold text-pine sm:text-sm"><Clock className="h-4 w-4 shrink-0 text-rust" /> <span className="truncate">Mon–Sat · 9 AM – 9 PM</span></p>
+              <p className="flex min-w-0 flex-1 items-center gap-2 text-[13px] font-semibold text-pine sm:text-sm"><Clock className="h-4 w-4 shrink-0 text-rust" /> <span className="truncate">Mon–Sat · 11 AM – 8:30 PM</span></p>
               <a href="#visit" className="hidden shrink-0 rounded-full bg-pine px-4 py-2 text-xs font-semibold text-cream sm:inline-block">Visit info</a>
             </div>
             <p className="mt-1 text-xs leading-snug text-charcoal/60">Sunday closed · confirm slot on call</p>
@@ -241,11 +258,11 @@ function Conditions() {
           <div className="max-w-2xl">
             <p className="reveal text-[11px] font-semibold uppercase tracking-[0.16em] text-rust sm:text-xs sm:tracking-[0.2em]">Conditions treated</p>
             <h2 className="reveal mt-3 text-balance font-serif text-[32px] font-medium leading-[1.08] tracking-tight text-pine sm:mt-4 sm:text-5xl sm:leading-[1.05]" style={{ '--reveal-delay': '80ms' }}>
-              Start with what hurts.<br /><span className="italic text-charcoal/70">We’ll trace it to the cause.</span>
+              Diagnosed in minutes.<br /><span className="italic text-charcoal/70">Treated with precision.</span>
             </h2>
           </div>
           <p className="reveal max-w-xs text-sm leading-relaxed text-charcoal/65" style={{ '--reveal-delay': '140ms' }}>
-            No rushed 10-minute sessions. Every plan is built around your life, age and goals.
+            Sports injuries to everyday pain — every case gets an exact diagnosis and a targeted plan.
           </p>
         </div>
         <div className="mt-8 grid gap-3 sm:mt-10 sm:gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -274,7 +291,7 @@ function Conditions() {
                 <h3 className={`relative mt-4 font-serif text-lg font-medium leading-snug sm:text-xl ${c.highlight ? 'text-cream' : 'text-pine'}`}>{c.title}</h3>
                 <p className={`relative mt-1.5 text-sm leading-relaxed ${c.highlight ? 'text-cream/75' : 'text-charcoal/65'}`}>{c.desc}</p>
                 {c.highlight && (
-                  <span className="relative mt-3 inline-block rounded-full bg-rust px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-cream">Most loved</span>
+                  <span className="relative mt-3 inline-block rounded-full bg-rust px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-cream">Prevention first</span>
                 )}
               </a>
             )
@@ -294,6 +311,38 @@ function Conditions() {
   )
 }
 
+function Techniques() {
+  return (
+    <section id="techniques" className="bg-pine-deep">
+      <div className="mx-auto max-w-6xl px-5 py-12 sm:px-8 sm:py-24">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div className="max-w-2xl">
+            <p className="reveal text-[11px] font-semibold uppercase tracking-[0.16em] text-rust-soft sm:text-xs sm:tracking-[0.2em]">Certified techniques</p>
+            <h2 className="reveal mt-3 text-balance font-serif text-[32px] font-medium leading-[1.08] tracking-tight text-cream sm:mt-4 sm:text-5xl sm:leading-[1.05]" style={{ '--reveal-delay': '80ms' }}>
+              Tools most clinics<br /><span className="italic text-cream/65">simply don’t have.</span>
+            </h2>
+          </div>
+          <p className="reveal max-w-xs text-sm leading-relaxed text-cream/65" style={{ '--reveal-delay': '140ms' }}>
+            Three genuine certifications — used only where your case truly needs them.
+          </p>
+        </div>
+        <div className="mt-8 grid gap-3 sm:mt-10 sm:gap-4 md:grid-cols-3">
+          {TECHNIQUES.map((t, i) => (
+            <div key={t.abbr} className="reveal card-premium relative overflow-hidden rounded-3xl border border-cream/15 bg-cream/[0.07] p-6 backdrop-blur-sm sm:p-7" style={{ '--reveal-delay': `${i * 100}ms` }}>
+              <span className="inline-block rounded-full bg-rust px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.14em] text-cream">{t.abbr}</span>
+              <h3 className="mt-4 font-serif text-2xl font-medium text-cream">{t.title}</h3>
+              <p className="mt-2.5 text-sm leading-relaxed text-cream/70 sm:text-[15px]">{t.desc}</p>
+            </div>
+          ))}
+        </div>
+        <p className="reveal mt-6 text-center text-[13px] text-cream/50 sm:text-sm">
+          CKTP — Certified Kinesio Taping Practitioner · CDNP — Certified Dry Needling Practitioner · CPP — Certified Pilates Practitioner
+        </p>
+      </div>
+    </section>
+  )
+}
+
 function About() {
   return (
     <section id="about" className="bg-cream">
@@ -303,55 +352,48 @@ function About() {
           <div className="reveal relative min-w-0">
             <div className="overflow-hidden rounded-3xl sm:rounded-[28px]">
               <img
-                src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1200&q=80"
-                alt="Guided rehabilitation exercise"
+                src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=80"
+                alt="Hands-on sports physiotherapy treatment"
                 className="h-[280px] w-full object-cover transition-transform duration-700 hover:scale-[1.03] sm:h-[520px]"
                 loading="lazy"
               />
             </div>
             <div className="mt-3 rounded-2xl bg-sage-light p-4 sm:mt-4 sm:p-5">
               <p className="font-serif text-[17px] italic leading-relaxed text-pine sm:text-lg">
-                “We don’t chase only the pain. We find why it started — then rebuild from there.”
+                “Find the exact cause first. Then treat it precisely — no guesswork, no generic routines.”
               </p>
-              <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-charcoal/50 sm:text-xs">— Treatment philosophy at Trimurti</p>
+              <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-charcoal/50 sm:text-xs">— Treatment philosophy at Neolife</p>
             </div>
           </div>
           <div className="min-w-0">
             <p className="reveal text-[11px] font-semibold uppercase tracking-[0.16em] text-rust sm:text-xs sm:tracking-[0.2em]">About</p>
             <h2 className="reveal mt-3 text-balance font-serif text-[32px] font-medium leading-[1.08] tracking-tight text-pine sm:mt-4 sm:text-5xl sm:leading-[1.05]" style={{ '--reveal-delay': '80ms' }}>
-              A clinician you can<br className="hidden sm:block" /> ask questions to.
+              A sports specialist<br className="hidden sm:block" /> for every body.
             </h2>
             <div className="reveal mt-6 space-y-4 text-[15px] leading-relaxed text-charcoal/75 sm:text-base" style={{ '--reveal-delay': '140ms' }}>
               <p>
-                <strong className="font-semibold text-pine">Dr. Radhika Rahul Kulkarni (PT)</strong> — BPT, MPT in Orthopedic
-                Physiotherapy (Maharashtra University, 2016), 10+ years of practice. Registered physiotherapist
-                <span className="text-charcoal/60"> (2013/07/PT/002883)</span>.
+                <strong className="font-semibold text-pine">Dr. Devika S. Mehta</strong> — BPTh, MPTh in Sports
+                Physiotherapy, with international certifications in Kinesio Taping (CKTP), Dry Needling (CDNP)
+                and Pilates (CPP).
               </p>
               <p>
-                Her clinic, <strong className="font-semibold text-pine">Trimurti Advanced Physiotherapy and Osteopathy</strong> in
-                Kothrud, is known for three things patients repeat in reviews: modern equipment, explaining the root
-                cause in simple words, and plans personalised to age and lifestyle — from young disc patients to
-                elderly balance care.
+                Her clinic, <strong className="font-semibold text-pine">Neolife Physiotherapy and Sports Rehabilitation
+                Centre</strong> in Narayan Peth, is known for precise diagnosis — patients say she finds the exact
+                root cause within minutes — modern equipment, clearly explained exercises and posture correction,
+                and motivation that keeps recovery on track.
               </p>
             </div>
             <div className="reveal mt-6 grid gap-3 sm:mt-7 sm:grid-cols-2" style={{ '--reveal-delay': '200ms' }}>
               <div className="card-premium flex items-start gap-3 rounded-2xl border border-pine/12 bg-white/80 p-4 shadow-sm">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-sage-light"><GraduationCap className="h-5 w-5 text-pine" /></span>
-                <p className="min-w-0 text-sm leading-relaxed text-charcoal/75"><strong className="font-semibold text-pine">MPT Ortho, 2016</strong><br />Maharashtra University · 10+ yrs</p>
+                <p className="min-w-0 text-sm leading-relaxed text-charcoal/75"><strong className="font-semibold text-pine">MPTh (Sports)</strong><br />BPTh · CKTP · CDNP · CPP</p>
               </div>
               <div className="card-premium flex items-start gap-3 rounded-2xl border border-pine/12 bg-white/80 p-4 shadow-sm">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-sage-light"><Languages className="h-5 w-5 text-pine" /></span>
-                <p className="min-w-0 text-sm leading-relaxed text-charcoal/75"><strong className="font-semibold text-pine">English · Hindi · Marathi</strong><br />Easy for patients & families</p>
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-rust/10"><BadgeCheck className="h-5 w-5 text-rust" /></span>
+                <p className="min-w-0 text-sm leading-relaxed text-charcoal/75"><strong className="font-semibold text-pine">Sports specialisation</strong><br />Taping · needling · Pilates</p>
               </div>
             </div>
-            <div className="reveal card-premium mt-4 rounded-3xl bg-pine p-5 text-cream sm:mt-6 sm:p-6" style={{ '--reveal-delay': '260ms' }}>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cream/60">The team</p>
-              <p className="mt-2 text-[15px] leading-relaxed text-cream/85">
-                Supported by associate physiotherapists <strong className="font-semibold text-cream">Dr. Reva</strong> and{' '}
-                <strong className="font-semibold text-cream">Dr. Sakshi</strong> — praised in reviews for patience
-                and full attention in every visit.
-              </p>
-            </div>
+            {/* TODO: team members TBD — add associate-doctors card here once confirmed */}
           </div>
         </div>
       </div>
@@ -361,9 +403,9 @@ function About() {
 
 function Approach() {
   const steps = [
-    { n: '01', title: 'Listen first', desc: 'Your history, your pain pattern, your daily routine. No interruptions, no jargon. Older patients especially — we take the time.' },
-    { n: '02', title: 'Find the root cause', desc: 'Movement assessment, strength testing, review of scans if you have them. We explain why it hurts, in plain language.' },
-    { n: '03', title: 'Rebuild with a plan', desc: 'Hands-on therapy + guided exercise + home program. Modern machinery where it helps, honest timelines throughout.' },
+    { n: '01', title: 'Pinpoint diagnosis', desc: 'Your history, movement screening, strength testing. The exact root cause — explained in plain words, usually within minutes.' },
+    { n: '02', title: 'Precise treatment', desc: 'Manual therapy, certified taping or needling where needed, modern equipment. Nothing generic, nothing extra.' },
+    { n: '03', title: 'Rebuild & return', desc: 'Corrective exercise, Pilates-based core work and a home program — built to get you back to sport and life.' },
   ]
   return (
     <section id="approach" className="bg-sage-light/60">
@@ -371,9 +413,9 @@ function Approach() {
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between sm:gap-4">
           <div className="max-w-xl">
             <p className="reveal text-[11px] font-semibold uppercase tracking-[0.16em] text-rust sm:text-xs sm:tracking-[0.2em]">Approach</p>
-            <h2 className="reveal mt-3 font-serif text-[32px] font-medium tracking-tight text-pine sm:mt-4 sm:text-5xl" style={{ '--reveal-delay': '80ms' }}>Calm. Clear. Consistent.</h2>
+            <h2 className="reveal mt-3 font-serif text-[32px] font-medium tracking-tight text-pine sm:mt-4 sm:text-5xl" style={{ '--reveal-delay': '80ms' }}>Precise. Modern. Motivating.</h2>
           </div>
-          <p className="reveal max-w-sm text-sm leading-relaxed text-charcoal/65" style={{ '--reveal-delay': '140ms' }}>Recovery is not a single session — it’s a guided sequence. Here’s how every case at Trimurti moves.</p>
+          <p className="reveal max-w-sm text-sm leading-relaxed text-charcoal/65" style={{ '--reveal-delay': '140ms' }}>Relief in days, not months. Here’s how every case at Neolife moves.</p>
         </div>
         <div className="mt-8 grid gap-3 sm:mt-10 sm:gap-4 md:grid-cols-3">
           {steps.map((s, i) => (
@@ -387,9 +429,9 @@ function Approach() {
         </div>
         <div className="reveal mt-4 grid gap-3 sm:mt-4 sm:grid-cols-3 sm:gap-4">
           {[
-            { t: 'Modern equipment', d: 'Latest machinery where it genuinely helps.' },
-            { t: 'Root-cause first', d: 'Explained plainly — never just heat + leave.' },
-            { t: 'Personal plans', d: 'Built around age, lifestyle and goals.' },
+            { t: 'Modern equipment', d: 'genuinely current tools, not dusty machines.' },
+            { t: 'Root-cause first', d: 'diagnosed in minutes, explained clearly.' },
+            { t: 'Motivating care', d: 'patients say encouragement speeds healing.' },
           ].map((b) => (
             <div key={b.t} className="flex items-center gap-3 rounded-2xl bg-pine px-5 py-4">
               <BadgeCheck className="h-5 w-5 shrink-0 text-rust-soft" />
@@ -403,18 +445,18 @@ function Approach() {
 }
 
 function Reviews() {
-  const row = [...TESTIMONIALS, ...TESTIMONIALS]
+  const row = [...TESTIMONIALS, ...TESTIMONIALS, ...TESTIMONIALS]
   return (
     <section id="reviews" className="overflow-hidden bg-cream">
       <div className="mx-auto max-w-6xl px-5 pt-12 sm:px-8 sm:pt-24">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between sm:gap-4">
           <div>
             <p className="reveal text-[11px] font-semibold uppercase tracking-[0.16em] text-rust sm:text-xs sm:tracking-[0.2em]">Reviews</p>
-            <h2 className="reveal mt-3 font-serif text-[32px] font-medium tracking-tight text-pine sm:mt-4 sm:text-5xl" style={{ '--reveal-delay': '80ms' }}>Trusted in Kothrud.</h2>
+            <h2 className="reveal mt-3 font-serif text-[32px] font-medium tracking-tight text-pine sm:mt-4 sm:text-5xl" style={{ '--reveal-delay': '80ms' }}>Rated 5.0 in Pune.</h2>
           </div>
           <div className="reveal flex items-center gap-2.5 sm:gap-3" style={{ '--reveal-delay': '140ms' }}>
             <Stars className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-            <p className="text-sm text-charcoal/70"><strong className="font-semibold text-pine">4.9 / 5</strong> · 107 Google reviews</p>
+            <p className="text-sm text-charcoal/70"><strong className="font-semibold text-pine">5.0 / 5</strong> · 142 Google reviews</p>
           </div>
         </div>
       </div>
@@ -449,22 +491,22 @@ function Visit() {
         <div className="grid gap-8 sm:gap-10 lg:grid-cols-2 lg:gap-14">
           <div className="min-w-0">
             <p className="reveal text-[11px] font-semibold uppercase tracking-[0.16em] text-rust sm:text-xs sm:tracking-[0.2em]">Visit</p>
-            <h2 className="reveal mt-3 font-serif text-[32px] font-medium tracking-tight text-pine sm:mt-4 sm:text-5xl" style={{ '--reveal-delay': '80ms' }}>Find us in Kothrud.</h2>
+            <h2 className="reveal mt-3 font-serif text-[32px] font-medium tracking-tight text-pine sm:mt-4 sm:text-5xl" style={{ '--reveal-delay': '80ms' }}>Find us in Narayan Peth.</h2>
             <div className="reveal mt-5 space-y-4 sm:mt-6" style={{ '--reveal-delay': '140ms' }}>
               <p className="flex items-start gap-3 text-[15px] leading-relaxed text-charcoal/80">
                 <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-rust" />
-                <span className="min-w-0">Plot no 22, Siddhaved, Ishadan Society Rd, Anand Nagar, Kothrud, Paud Road, Pune, Maharashtra 411038</span>
+                <span className="min-w-0">515, Narayan Peth, Shreedhar Apartment, Shop No. 3, Near Patrya Maruti Mandir, Pune – 411030</span>
               </p>
               <div className="grid gap-3 sm:grid-cols-2">
                 <div className="card-premium rounded-3xl border border-pine/12 bg-white p-5 shadow-sm">
                   <p className="flex items-center gap-2 text-[12px] font-semibold uppercase tracking-wider text-pine sm:text-[13px]"><span className="flex h-8 w-8 items-center justify-center rounded-xl bg-sage-light"><Clock className="h-4 w-4 shrink-0 text-pine" /></span> Hours</p>
-                  <p className="mt-3 text-sm leading-relaxed text-charcoal/75">Mon–Sat · 9:00 AM – 9:00 PM<br />Sunday · Closed</p>
-                  <p className="mt-2 text-xs leading-relaxed text-charcoal/55">Practo/Apollo show narrower slots. Call to confirm.</p>
+                  <p className="mt-3 text-sm leading-relaxed text-charcoal/75">Mon–Sat · 11:00 AM – 8:30 PM<br />Sunday · Closed</p>
+                  <p className="mt-2 text-xs leading-relaxed text-charcoal/55">Call or WhatsApp to confirm your slot.</p>
                 </div>
                 <div className="card-premium rounded-3xl border border-pine/12 bg-white p-5 shadow-sm">
-                  <p className="flex items-center gap-2 text-[12px] font-semibold uppercase tracking-wider text-pine sm:text-[13px]"><span className="flex h-8 w-8 items-center justify-center rounded-xl bg-rust/10"><BadgeCheck className="h-4 w-4 shrink-0 text-rust" /></span> Fee & languages</p>
-                  <p className="mt-3 text-sm leading-relaxed text-charcoal/75">₹500 — clinic & online<br />English · Hindi · Marathi</p>
-                  <p className="mt-2 text-xs leading-relaxed text-charcoal/55">Carry scans/prescriptions if you have them.</p>
+                  <p className="flex items-center gap-2 text-[12px] font-semibold uppercase tracking-wider text-pine sm:text-[13px]"><span className="flex h-8 w-8 items-center justify-center rounded-xl bg-rust/10"><BadgeCheck className="h-4 w-4 shrink-0 text-rust" /></span> Fee & contact</p>
+                  <p className="mt-3 text-sm leading-relaxed text-charcoal/75">Fee — to be confirmed<br />Call for current charges</p>
+                  <p className="mt-2 text-xs leading-relaxed text-charcoal/55">{PHONE_LABEL} · {PHONE2_LABEL}</p>
                 </div>
               </div>
               <div className="flex flex-col gap-2.5 sm:flex-row sm:gap-3">
@@ -479,7 +521,7 @@ function Visit() {
           </div>
           <div className="reveal min-w-0 overflow-hidden rounded-3xl border border-pine/12 shadow-xl sm:rounded-[28px]" style={{ '--reveal-delay': '180ms' }}>
             <iframe
-              title="Trimurti Advanced Physiotherapy — map"
+              title="Neolife Physiotherapy and Sports Rehabilitation Centre — map"
               src={MAP_EMBED}
               width="100%"
               height="100%"
@@ -559,7 +601,7 @@ function Contact() {
         <div className="min-w-0">
           <p className="reveal text-[11px] font-semibold uppercase tracking-[0.16em] text-rust-soft sm:text-xs sm:tracking-[0.2em]">Book</p>
           <h2 className="reveal mt-3 text-balance font-serif text-[32px] font-medium leading-[1.08] tracking-tight text-cream sm:mt-4 sm:text-5xl sm:leading-[1.05]" style={{ '--reveal-delay': '80ms' }}>
-            Tell us what hurts.<br /><span className="italic text-cream/70">We’ll guide the rest.</span>
+            Back in the game.<br /><span className="italic text-cream/70">Starting with one visit.</span>
           </h2>
           <p className="reveal mt-4 max-w-md text-[15px] leading-relaxed text-cream/70 sm:mt-5 sm:text-base" style={{ '--reveal-delay': '140ms' }}>
             Call or WhatsApp for the fastest response — usually within clinic hours. Or leave a request here
@@ -568,11 +610,15 @@ function Contact() {
           <div className="reveal mt-6 space-y-2.5 sm:mt-7 sm:space-y-3" style={{ '--reveal-delay': '200ms' }}>
             <a href={`tel:${PHONE}`} className="flex items-center gap-3 rounded-2xl bg-cream/10 p-3.5 transition-colors hover:bg-cream/15 sm:gap-4 sm:p-4">
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-rust sm:h-11 sm:w-11"><Phone className="h-5 w-5 text-cream" /></span>
-              <span className="min-w-0"><span className="block text-[11px] uppercase tracking-wider text-cream/50 sm:text-xs">Call the clinic</span><span className="block truncate font-semibold text-cream">{PHONE_LABEL}</span></span>
+              <span className="min-w-0"><span className="block text-[11px] uppercase tracking-wider text-cream/50 sm:text-xs">Call the clinic</span><span className="block truncate font-semibold text-cream">{PHONE_LABEL} · {PHONE2_LABEL}</span></span>
             </a>
             <a href={WA_LINK} target="_blank" rel="noreferrer" className="flex items-center gap-3 rounded-2xl bg-cream/10 p-3.5 transition-colors hover:bg-cream/15 sm:gap-4 sm:p-4">
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-cream/15 sm:h-11 sm:w-11"><MessageCircle className="h-5 w-5 text-cream" /></span>
               <span className="min-w-0"><span className="block text-[11px] uppercase tracking-wider text-cream/50 sm:text-xs">WhatsApp</span><span className="block truncate font-semibold text-cream">Describe your pain, get a slot</span></span>
+            </a>
+            <a href={`mailto:${EMAIL}`} className="flex items-center gap-3 rounded-2xl bg-cream/10 p-3.5 transition-colors hover:bg-cream/15 sm:gap-4 sm:p-4">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-cream/15 sm:h-11 sm:w-11"><Navigation className="h-5 w-5 text-cream" /></span>
+              <span className="min-w-0"><span className="block text-[11px] uppercase tracking-wider text-cream/50 sm:text-xs">Email</span><span className="block truncate font-semibold text-cream">{EMAIL}</span></span>
             </a>
           </div>
         </div>
@@ -581,7 +627,7 @@ function Contact() {
             <div className="rounded-3xl bg-cream p-8 text-center sm:rounded-[24px] sm:p-12">
               <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-pine"><BadgeCheck className="h-7 w-7 text-cream" /></span>
               <h3 className="mt-4 font-serif text-2xl font-medium text-pine sm:text-3xl">Request received.</h3>
-              <p className="mx-auto mt-2 max-w-sm text-sm leading-relaxed text-charcoal/65 sm:text-[15px]">Thank you. The clinic will call you back during working hours (Mon–Sat, 9 AM – 9 PM) to confirm your slot.</p>
+              <p className="mx-auto mt-2 max-w-sm text-sm leading-relaxed text-charcoal/65 sm:text-[15px]">Thank you. The clinic will call you back during working hours (Mon–Sat, 11 AM – 8:30 PM) to confirm your slot.</p>
               <a href={`tel:${PHONE}`} className="btn-rust mt-6 inline-flex items-center gap-2 rounded-full bg-rust px-6 py-3 text-sm font-semibold text-cream"><Phone className="h-4 w-4" /> Or call now</a>
             </div>
           ) : (
@@ -589,28 +635,28 @@ function Contact() {
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
                   <label className="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.14em] text-charcoal/55">Name</label>
-                  <input required placeholder="Your name" className="w-full rounded-xl border border-pine/15 bg-white px-4 py-3 text-sm text-charcoal outline-none transition placeholder:text-charcoal/35 focus:border-rust focus:ring-2 focus:ring-rust/20" />
+                  <input required placeholder="Your name" className="w-full rounded-xl border border-pine/15 bg-white px-4 py-3 text-charcoal outline-none transition placeholder:text-charcoal/35 focus:border-rust focus:ring-2 focus:ring-rust/20" />
                 </div>
                 <div>
                   <label className="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.14em] text-charcoal/55">Phone</label>
-                  <input required type="tel" placeholder="+91 …" className="w-full rounded-xl border border-pine/15 bg-white px-4 py-3 text-sm text-charcoal outline-none transition placeholder:text-charcoal/35 focus:border-rust focus:ring-2 focus:ring-rust/20" />
+                  <input required type="tel" placeholder="+91 …" className="w-full rounded-xl border border-pine/15 bg-white px-4 py-3 text-charcoal outline-none transition placeholder:text-charcoal/35 focus:border-rust focus:ring-2 focus:ring-rust/20" />
                 </div>
               </div>
               <div className="mt-4">
                 <label className="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.14em] text-charcoal/55">What are you facing?</label>
-                <select className="w-full rounded-xl border border-pine/15 bg-white px-4 py-3 text-sm text-charcoal outline-none transition focus:border-rust focus:ring-2 focus:ring-rust/20">
+                <select className="w-full rounded-xl border border-pine/15 bg-white px-4 py-3 text-charcoal outline-none transition focus:border-rust focus:ring-2 focus:ring-rust/20">
+                  <option>Sports injury</option>
                   <option>Back / neck pain</option>
-                  <option>Slipped disc / sciatica</option>
-                  <option>Knee / arthritis pain</option>
+                  <option>Knee pain</option>
+                  <option>Tendon injury</option>
                   <option>Post-surgery rehab</option>
-                  <option>Elderly balance / weakness</option>
-                  <option>Pregnancy-related</option>
+                  <option>Posture correction</option>
                   <option>Something else</option>
                 </select>
               </div>
               <div className="mt-4">
                 <label className="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.14em] text-charcoal/55">Message</label>
-                <textarea rows={4} placeholder="Since when, where exactly, what makes it worse…" className="w-full resize-none rounded-xl border border-pine/15 bg-white px-4 py-3 text-sm text-charcoal outline-none transition placeholder:text-charcoal/35 focus:border-rust focus:ring-2 focus:ring-rust/20" />
+                <textarea rows={4} placeholder="Your sport, since when, where exactly, what makes it worse…" className="w-full resize-none rounded-xl border border-pine/15 bg-white px-4 py-3 text-charcoal outline-none transition placeholder:text-charcoal/35 focus:border-rust focus:ring-2 focus:ring-rust/20" />
               </div>
               <button disabled={status === 'sending'} className="btn-rust mt-5 flex w-full items-center justify-center gap-2 rounded-full bg-rust py-4 font-semibold text-cream disabled:opacity-60">
                 {status === 'sending' ? 'Sending…' : <>Request callback <ArrowRight className="h-4 w-4" /></>}
@@ -630,15 +676,15 @@ function Footer() {
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <div className="grid gap-8 border-t border-cream/10 pt-8 sm:pt-10 md:grid-cols-[1.2fr_0.8fr_1fr]">
           <div className="min-w-0">
-            <p className="font-serif text-2xl font-semibold text-cream">Trimurti</p>
-            <p className="mt-1 text-[11px] uppercase tracking-[0.18em] text-cream/50 sm:text-xs">Advanced Physiotherapy and Osteopathy</p>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-cream/60">Dr. Radhika Kulkarni (PT) · MPT Ortho · 10+ years · Kothrud, Pune. Root-cause rehab, explained plainly.</p>
-              <p className="mt-3 flex flex-wrap items-center gap-2 text-sm text-cream/70"><Stars className="h-3.5 w-3.5" /><strong className="font-semibold text-cream">4.9 / 5</strong><span className="rounded-full bg-cream/10 px-2.5 py-0.5 text-xs font-semibold text-cream/80">107 Google reviews</span></p>
+            <p className="font-serif text-2xl font-semibold text-cream">Neolife</p>
+            <p className="mt-1 text-[11px] uppercase tracking-[0.18em] text-cream/50 sm:text-xs">Physiotherapy & Sports Rehab</p>
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-cream/60">Dr. Devika S. Mehta · MPTh (Sports) · CKTP · CDNP · CPP · Narayan Peth, Pune. Precise diagnosis, modern techniques.</p>
+            <p className="mt-3 flex flex-wrap items-center gap-2 text-sm text-cream/70"><Stars className="h-3.5 w-3.5" /><strong className="font-semibold text-cream">5.0 / 5</strong><span className="rounded-full bg-cream/10 px-2.5 py-0.5 text-xs font-semibold text-cream/80">142 Google reviews</span></p>
           </div>
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-rust-soft sm:text-xs">Explore</p>
             <ul className="mt-3 grid grid-cols-2 gap-2 text-sm md:grid-cols-1 md:space-y-2 md:gap-0">
-              {[['Conditions', '#conditions'], ['About', '#about'], ['Approach', '#approach'], ['Reviews', '#reviews'], ['Visit', '#visit'], ['Book', '#contact']].map(([label, href]) => (
+              {[['Conditions', '#conditions'], ['Techniques', '#techniques'], ['About', '#about'], ['Approach', '#approach'], ['Reviews', '#reviews'], ['Visit', '#visit'], ['Book', '#contact']].map(([label, href]) => (
                 <li key={href}><a href={href} className="calm-link text-cream/65 hover:text-cream">{label}</a></li>
               ))}
             </ul>
@@ -646,15 +692,16 @@ function Footer() {
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-rust-soft sm:text-xs">Clinic</p>
             <ul className="mt-3 space-y-2 text-sm leading-relaxed text-cream/65">
-              <li className="max-w-[280px]">Plot no 22, Siddhaved, Ishadan Society Rd, Kothrud, Pune 411038</li>
-              <li><a href={`tel:${PHONE}`} className="hover:text-cream">{PHONE_LABEL}</a> · ₹500 consult</li>
-              <li>Mon–Sat 9 AM – 9 PM · Sun closed</li>
+              <li className="max-w-[280px]">515, Narayan Peth, Near Patrya Maruti Mandir, Pune 411030</li>
+              <li><a href={`tel:${PHONE}`} className="hover:text-cream">{PHONE_LABEL}</a></li>
+              <li><a href={`mailto:${EMAIL}`} className="hover:text-cream">{EMAIL}</a></li>
+              <li>Mon–Sat 11 AM – 8:30 PM · Sun closed</li>
             </ul>
           </div>
         </div>
         <div className="mt-8 flex flex-col items-start justify-between gap-2 border-t border-cream/10 pt-6 sm:mt-10 sm:flex-row sm:items-center sm:gap-3">
-          <p className="text-xs leading-relaxed text-cream/40">© 2026 Trimurti Advanced Physiotherapy. All rights reserved.</p>
-          <p className="text-xs text-cream/40">BPT · MPT Ortho (2016) · Reg. 2013/07/PT/002883</p>
+          <p className="text-xs leading-relaxed text-cream/40">© 2026 Neolife Physiotherapy and Sports Rehabilitation Centre. All rights reserved.</p>
+          <p className="text-xs text-cream/40">BPTh · MPTh (Sports) · CKTP · CDNP · CPP</p>
         </div>
       </div>
     </footer>
@@ -670,13 +717,14 @@ export default function App() {
         <Hero />
         <div className="border-y border-pine/10 bg-sage-light/70">
           <div className="mx-auto grid max-w-6xl grid-cols-2 gap-x-4 gap-y-2 px-5 py-3.5 text-[12.5px] font-medium text-pine/80 sm:flex sm:flex-wrap sm:items-center sm:gap-x-8 sm:px-8 sm:text-[13px]">
-            <span>MPT Orthopedic Physiotherapy</span>
-            <span>10+ years experience</span>
-            <span>Osteopathy & manual therapy</span>
-            <span className="text-rust">4.9★ rated · 107 Google reviews</span>
+            <span>MPTh Sports Physiotherapy</span>
+            <span>Certified taping · needling · Pilates</span>
+            <span>Modern equipment</span>
+            <span className="text-rust">5.0★ rated · 142 Google reviews</span>
           </div>
         </div>
         <Conditions />
+        <Techniques />
         <About />
         <Approach />
         <Reviews />
